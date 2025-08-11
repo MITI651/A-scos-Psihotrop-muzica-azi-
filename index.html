@@ -1,68 +1,69 @@
-<style>
-  body {
-    background-color: #000;
-    color: #00ff66;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
-  }
-  .content {
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 1;
-  }
-  h1 {
-    font-size: 2.5rem;
-    margin-top: 40px;
-    text-shadow: 0 0 10px #00ff66, 0 0 20px #00ff66;
-  }
-  .answer {
-    font-size: 5rem;
-    font-weight: bold;
-    text-shadow: 0 0 15px #00ff66, 0 0 30px #00ff66;
-  }
-  .upload-info {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    text-shadow: 0 0 8px #00ff66;
-  }
-  .emoji {
-    position: absolute;
-    font-size: 2rem;
-    opacity: 0.3;
-    animation: float 5s infinite ease-in-out;
-    color: #00ff66;
-  }
-  @keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); }
-    100% { transform: translateY(-100vh) rotate(360deg); }
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Psihotrop Update</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff66;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 40px;
+      text-shadow: 0 0 10px #00ff66, 0 0 20px #00ff66;
+    }
+    .answer {
+      font-size: 5rem;
+      font-weight: bold;
+      text-shadow: 0 0 15px #00ff66, 0 0 30px #00ff66;
+    }
+    .upload-info {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      text-shadow: 0 0 8px #00ff66;
+    }
+    .channel-photo {
+      margin-top: 20px;
+      display: inline-block;
+      border: 3px solid #00ff66;
+      box-shadow: 0 0 15px #00ff66;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out;
+    }
+    .channel-photo:hover {
+      transform: scale(1.05);
+    }
+    .channel-photo img {
+      display: block;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="content">
-  <h1>A scos Psihotrop muzica azi?</h1>
-  <div class="answer" id="answer">Nu</div>
-  <div class="upload-info" id="last-upload">
-    Ultima lansare: “VIITORUL PRESEDINTE.” 
-  </div>
+<h1>A scos Psihotrop muzica azi?</h1>
+<div class="answer" id="answer">Nu</div>
+<div class="upload-info">
+  Ultima lansare: “VIITORUL PRESEDINTE.” 
 </div>
+
+<!-- Clickable Channel Photo -->
+<a href="https://www.youtube.com/channel/UCXv_kTR7affL-I1Vg-YNapw" target="_blank" class="channel-photo">
+  <img src="channels4_profile.jpg" alt="Psihotrop Channel">
+</a>
 
 <script>
   document.getElementById("answer").textContent = "Nu";
-
-  for (let i = 0; i < 20; i++) {
-    const emoji = document.createElement("div");
-    emoji.className = "emoji";
-    emoji.textContent = "😞";
-    emoji.style.left = Math.random() * 100 + "vw";
-    emoji.style.top = Math.random() * 100 + "vh";
-    emoji.style.fontSize = (Math.random() * 2 + 1) + "rem";
-    emoji.style.animationDuration = (Math.random() * 5 + 5) + "s";
-    document.body.appendChild(emoji);
-  }
 </script>
+
+</body>
+</html>
