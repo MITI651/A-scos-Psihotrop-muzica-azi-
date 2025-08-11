@@ -1,43 +1,40 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-<meta charset="UTF-8" />
-<title>A scos Psihotrop muzica azi?</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 <style>
   body {
-    background-color: #0d0d0d;
+    background-color: #000;
     color: #00ff66;
-    font-family: 'Share Tech Mono', monospace;
+    font-family: Arial, sans-serif;
+    text-align: center;
     margin: 0;
+    padding: 0;
     height: 100vh;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   .content {
-    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
   }
   h1 {
-    font-size: 3rem;
-    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    margin-top: 40px;
+    text-shadow: 0 0 10px #00ff66, 0 0 20px #00ff66;
   }
   .answer {
     font-size: 5rem;
     font-weight: bold;
-    margin-top: 0;
+    text-shadow: 0 0 15px #00ff66, 0 0 30px #00ff66;
   }
-  .timer {
-    margin-top: 2rem;
-    font-size: 1.2rem;
-    font-weight: normal;
+  .upload-info {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-shadow: 0 0 8px #00ff66;
   }
   .emoji {
     position: absolute;
     font-size: 2rem;
     opacity: 0.3;
     animation: float 5s infinite ease-in-out;
+    color: #00ff66;
   }
   @keyframes float {
     0% { transform: translateY(100vh) rotate(0deg); }
@@ -49,36 +46,17 @@
 
 <div class="content">
   <h1>A scos Psihotrop muzica azi?</h1>
-  <div class="answer" id="answer">Da</div>
-  <div class="timer" id="timer">Last upload was 213 days, 22 hours, 40 seconds ago</div>
+  <div class="answer" id="answer">Nu</div>
+  <div class="upload-info" id="last-upload">
+    Ultima lansare: “VIITORUL PRESEDINTE.” 
+  </div>
 </div>
 
 <script>
   document.getElementById("answer").textContent = "Nu";
 
-  let baseSeconds = 213 * 86400 + 22 * 3600 + 40;
-
-  function formatTime(seconds) {
-    const days = Math.floor(seconds / 86400);
-    seconds %= 86400;
-    const hours = Math.floor(seconds / 3600);
-    seconds %= 3600;
-    const mins = Math.floor(seconds / 60);
-    seconds %= 60;
-    return { days, hours, mins, seconds };
-  }
-
-  function updateTimer() {
-    baseSeconds++;
-    const t = formatTime(baseSeconds);
-    let timerStr = `Last upload was ${t.days} days, ${t.hours} hours, ${t.mins} minutes, ${t.seconds} seconds ago`;
-    document.getElementById("timer").textContent = timerStr;
-  }
-
-  setInterval(updateTimer, 1000);
-
   for (let i = 0; i < 20; i++) {
-    let emoji = document.createElement("div");
+    const emoji = document.createElement("div");
     emoji.className = "emoji";
     emoji.textContent = "😞";
     emoji.style.left = Math.random() * 100 + "vw";
@@ -88,6 +66,3 @@
     document.body.appendChild(emoji);
   }
 </script>
-
-</body>
-</html>
